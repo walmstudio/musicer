@@ -12,7 +12,6 @@ from aiogram import Bot, Dispatcher, types, F
 from aiogram.types import InlineQuery, InlineQueryResultArticle, InputTextMessageContent, FSInputFile
 from aiogram.filters import Command
 
-# --- [ КОНФИГУРАЦИЯ ] ---
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CONFIG_FILE = os.path.join(BASE_DIR, "config.json")
 DOWNLOAD_DIR = os.path.join(BASE_DIR, "downloads")
@@ -74,9 +73,7 @@ def refresh_cookies():
 
 def clean_filename(name):
     return re.sub(r'[\\/*?:"<>|]', "", name)
-
-# --- [ ЛОГИКА СКАЧИВАНИЯ ] ---
-
+    
 async def download_logic(url, status_msg):
     """Скачивание с комментированием каждого действия"""
     await status_msg.edit_text("🔄 Скачивание аудио [###]")
@@ -131,9 +128,7 @@ async def download_logic(url, status_msg):
             return final_path, info.get('title', 'Track'), info.get('uploader', 'YouTube')
     except Exception as e:
         return None, str(e), None
-
-# --- [ ОБРАБОТЧИКИ ] ---
-
+        
 @dp.message(F.text.contains("youtu"))
 async def handle_link(message: types.Message):
 
@@ -157,7 +152,6 @@ async def handle_link(message: types.Message):
         with yt_dlp.YoutubeDL(ydl_flat_opts) as ydl:
             info_dict = await asyncio.to_thread(lambda: ydl.extract_info(url, download=False))
 
-        # ОБРАБОТКА ПЛЕЙЛИСТА
         if 'entries' in info_dict:
             entries = list(info_dict['entries'])
             limit = 20
@@ -218,7 +212,7 @@ async def inline_search(query: InlineQuery):
 
 @dp.message(Command("start"))
 async def cmd_start(message: types.Message):
-    await message.answer("🎸 **ПИПЯО: OMNI-RESTORATION**\n\n• Комментирование действий возвращено\n• Подписи ✅ восстановлены\n• Лимит плейлиста: 20")
+    await message.answer("🎸 PYPAO v1.01. Created by WALM ")
 
 async def main():
     await dp.start_polling(bot)
