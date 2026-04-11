@@ -1,11 +1,10 @@
-# 🎸 PYPAO: Clean Sound Edition
+# 🎸 PYPAO: Бот для скачивания музыки с Youtube
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue?style=for-the-badge&logo=python)
 ![yt-dlp](https://img.shields.io/badge/Powered%20by-yt--dlp-red?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Termux%20%7C%20PC-brightgreen?style=for-the-badge)
 
-**PYPAO** — это продвинутый Telegram-бот для тех, кому важно качество звука. Никакого "мыла" и артефактов при конвертации.
-
+**PYPAO** — это продвинутый Telegram-бот для скачивания музыки с Youtube. Главная особенность - скачивание музыки по названию, без обязательного указания ссылки на видео 
 ## ✨ Основные фишки
 
 - 🔊 **Original Quality**: Скачивает прямой поток `m4a` (AAC) без перекодирования.
